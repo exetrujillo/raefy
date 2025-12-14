@@ -7,7 +7,7 @@
 rae_client(cadena_consulta)
 }
 \arguments{
-\item{cadena_consulta}{La cadena de consulta de la API (e.g., "search?w=hola&orderBy=asc").}
+\item{cadena_consulta}{La cadena de consulta de la API (por ejemplo "search?w=hola" o "wotd?callback=json").}
 }
 \value{
 El contenido raw de la respuesta.

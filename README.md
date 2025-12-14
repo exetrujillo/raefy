@@ -6,16 +6,23 @@ Un paquete de R para interactuar con el Diccionario de la Lengua Española (RAE)
 
 Puedes instalar este paquete localmente
 
-```r
+``` r
 # Desde directorio local
 devtools::install(".")
+```
+
+O con devtools directo desde github
+
+``` r
+# Desde github
+devtools::install_github("exetrujillo/raefy")
 ```
 
 ## Uso Básico
 
 Carga el paquete:
 
-```r
+``` r
 library(raefy)
 ```
 
@@ -23,7 +30,7 @@ library(raefy)
 
 Obtén definiciones, etimología y más:
 
-```r
+``` r
 info <- obtener_palabra("programar")
 print(info$definiciones)
 ```
@@ -32,7 +39,7 @@ print(info$definiciones)
 
 Para verbos, puedes solicitar la tabla de conjugación completa:
 
-```r
+``` r
 verbo <- obtener_palabra("correr", conjugaciones = TRUE)
 print(head(verbo$conjugaciones))
 ```
@@ -40,29 +47,34 @@ print(head(verbo$conjugaciones))
 ### Otras Funciones
 
 #### Palabra del Día
-```r
+
+``` r
 palabra_del_dia()
 ```
 
 #### Palabra Aleatoria
-```r
+
+``` r
 palabra_aleatoria()
 ```
 
 #### Buscar Anagramas
-```r
+
+``` r
 buscar_anagrama("amor")
 # [1] "armo" "armó" "maro" "mora" "morá" "ramo" "roma" "Roma"
 ```
 
 #### Autocompletar
-```r
+
+``` r
 autocompletar("const")
 ```
 
 #### Procesamiento en Lote
+
 Busca múltiples palabras y obtén un dataframe consolidado:
 
-```r
+``` r
 df <- recorrer_palabras(c("ciencia", "arte", "tecnología"))
 ```

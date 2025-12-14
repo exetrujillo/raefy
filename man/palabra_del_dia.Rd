@@ -12,3 +12,8 @@ Un dataframe con la palabra del día y su fecha (si está disponible) o contenid
 \description{
 Obtener la palabra del día
 }
+\examples{
+\donttest{
+palabra_del_dia()
+}
+}

@@ -1,18 +1,28 @@
 Package: raefy
 Type: Package
-Title: Wrapper for Royal Spanish Academy data
-Version: 0.1.0
-Author: Exequiel Trujillo Escobar
-Maintainer: Exequiel Trujillo Escobar <exequiel.trujillo@ug.uchile.cl>
-Description: A helpful tool for spanish words information, like 
-    definitions, synonims, or word conjugations.
-License: MIT
+Title: Interface to Royal Spanish Academy Data
+Version: 1.0.0
+Authors@R: 
+    person(given = "Exequiel",
+           family = "Trujillo Escobar",
+           role = c("aut", "cre"),
+           email = "exequiel.trujillo@ug.uchile.cl",
+           comment = c(ORCID = "0009-0007-4519-0214"))
+Description: Provides an interface to retrieve information about Spanish words, 
+    including definitions, synonyms, antonyms, and conjugations from the Royal 
+    Spanish Academy (RAE).
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Language: es-ES
+Depends:
+    R (>= 4.4)
 Imports:
     dplyr,
     httr,
     jsonlite,
     rvest,
     xml2
+URL: https://github.com/exetrujillo/raefy
+BugReports: https://github.com/exetrujillo/raefy/issues
 RoxygenNote: 7.3.3

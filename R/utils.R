@@ -10,6 +10,8 @@ expandir_categoria <- function(abrev) {
   
   # Diccionario de reemplazos
   # Ordenar por longitud para evitar reemplazos parciales incorrectos si fuera necesario
+  # Diccionario de reemplazos
+  # Nota: Se usan escapes unicode (\uXXXX) para pasar el check de CRAN
   reemplazos <- list(
     "prnl\\." = "verbo pronominal",
     "intr\\." = "verbo intransitivo",
@@ -17,20 +19,20 @@ expandir_categoria <- function(abrev) {
     "cop\\." = "verbo copulativo",
     "impers\\." = "verbo impersonal",
     "aux\\." = "verbo auxiliar",
-    "prep\\." = "preposición",
-    "conj\\." = "conjunción",
-    "interj\\." = "interjección",
+    "prep\\." = "preposici\u00f3n",
+    "conj\\." = "conjunci\u00f3n",
+    "interj\\." = "interjecci\u00f3n",
     "pron\\." = "pronombre",
-    "art\\." = "artículo",
+    "art\\." = "art\u00edculo",
     "adv\\." = "adverbio",
     "adj\\." = "adjetivo",
-    "loc\\." = "locución",
+    "loc\\." = "locuci\u00f3n",
     "verb\\." = "verbal",
     "nom\\." = "nominal",
     "m\\." = "nombre masculino",
     "f\\." = "nombre femenino",
     "U\\." = "Usado",
-    "t\\." = "también",
+    "t\\." = "tambi\u00e9n",
     "c\\." = "como"
   )
   

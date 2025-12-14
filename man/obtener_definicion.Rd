@@ -17,3 +17,8 @@ Un dataframe con las definiciones.
 \description{
 Obtener las definiciones de una palabra
 }
+\examples{
+\donttest{
+obtener_definicion("programar")
+}
+}

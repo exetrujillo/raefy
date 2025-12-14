@@ -1,6 +1,6 @@
 #' Cliente RAE interno
 #'
-#' @param cadena_consulta La cadena de consulta de la API (e.g., "search?w=hola&orderBy=asc").
+#' @param cadena_consulta La cadena de consulta de la API (por ejemplo "search?w=hola" o "wotd?callback=json").
 #' @return El contenido raw de la respuesta.
 #' @keywords internal
 rae_client <- function(cadena_consulta) {

@@ -15,3 +15,8 @@ Un vector de caracteres con las sugerencias.
 \description{
 Autocompletar palabra
 }
+\examples{
+\donttest{
+autocompletar("progra")
+}
+}

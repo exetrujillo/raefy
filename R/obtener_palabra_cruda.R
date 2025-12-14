@@ -19,7 +19,7 @@ obtener_palabra_cruda <- function(query = NULL, id = NULL) {
     message(paste("Usando el primer resultado para", query, ":", resultados$palabra[1], "(ID:", id, ")"))
   }
 
-  encoded_id <- URLencode(id)
+  encoded_id <- utils::URLencode(id)
   endpoint <- paste0("fetch?id=", encoded_id)
   
   response_txt <- rae_client(endpoint)

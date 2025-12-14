@@ -2,6 +2,10 @@
 #'
 #' @return Un dataframe con la palabra del día y su fecha (si está disponible) o contenido HTML crudo.
 #' @export
+#' @examples
+#' \donttest{
+#' palabra_del_dia()
+#' }
 palabra_del_dia <- function() {
   respuesta <- rae_client("wotd?callback=json")
   texto_json <- gsub("^json\\(|\\)$", "", respuesta)
@@ -27,6 +31,10 @@ palabra_del_dia <- function() {
 #'
 #' @return Un dataframe con la definicion de una palabra aleatoria.
 #' @export
+#' @examples
+#' \donttest{
+#' palabra_aleatoria()
+#' }
 palabra_aleatoria <- function() {
   html <- rae_client("random")
   
@@ -55,12 +63,16 @@ palabra_aleatoria <- function() {
 #' @param palabra La palabra para buscar anagramas.
 #' @return Un dataframe con los anagramas encontrados.
 #' @export
+#' @examples
+#' \donttest{
+#' buscar_anagrama("amor")
+#' }
 buscar_anagrama <- function(palabra) {  
   if (missing(palabra) || is.null(palabra) || palabra == "") {
     stop("Debe proporcionar una palabra para buscar anagramas.")
   }
   
-  endpoint <- paste0("anagram?w=", URLencode(palabra))
+  endpoint <- paste0("anagram?w=", utils::URLencode(palabra))
   respuesta <- rae_client(endpoint)
   
   datos <- tryCatch({
@@ -81,12 +93,16 @@ buscar_anagrama <- function(palabra) {
 #' @param texto El texto parcial para buscar sugerencias.
 #' @return Un vector de caracteres con las sugerencias.
 #' @export
+#' @examples
+#' \donttest{
+#' autocompletar("progra")
+#' }
 autocompletar <- function(texto) {
   if (missing(texto) || is.null(texto) || texto == "") {
     return(character())
   }
   
-  endpoint <- paste0("keys?q=", URLencode(texto), "&callback=jsonp123")
+  endpoint <- paste0("keys?q=", utils::URLencode(texto), "&callback=jsonp123")
   respuesta <- rae_client(endpoint)
   
   texto_json <- gsub("^jsonp123\\(|\\)$", "", respuesta)

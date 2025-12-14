@@ -208,12 +208,12 @@ extraer_conjugaciones <- function(contenido_html) {
       textos_ths <- rvest::html_text(ths, trim = TRUE)
       no_vacios <- textos_ths[textos_ths != ""]
       if (length(no_vacios) >= 2) {
-        tiempos_actuales <- tail(no_vacios, 2)
+        tiempos_actuales <- utils::tail(no_vacios, 2)
       } else if (length(no_vacios) == 1) {
-        t <- tail(no_vacios, 1)
+        t <- utils::tail(no_vacios, 1)
         tiempos_actuales <- c(t, t)
       } else if (length(textos_ths) >= 2) {
-        tiempos_actuales <- tail(textos_ths, 2)
+        tiempos_actuales <- utils::tail(textos_ths, 2)
       }
       
       # Fix para verbos imperativos:

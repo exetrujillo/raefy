@@ -4,7 +4,7 @@
 #' @return Un dataframe con columnas: palabra, resultado, id.
 #' @keywords internal
 buscar_palabra <- function(consulta) {
-  consulta_codificada <- URLencode(consulta)
+  consulta_codificada <- utils::URLencode(consulta)
   cadena_consulta <- paste0("search?w=", consulta_codificada)
   texto_respuesta <- rae_client(cadena_consulta)
   json_data <- jsonlite::fromJSON(texto_respuesta)

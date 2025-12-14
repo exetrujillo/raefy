@@ -15,3 +15,8 @@ Un dataframe con los anagramas encontrados.
 \description{
 Buscar anagramas
 }
+\examples{
+\donttest{
+buscar_anagrama("amor")
+}
+}

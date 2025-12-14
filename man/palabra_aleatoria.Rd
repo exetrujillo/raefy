@@ -12,3 +12,8 @@ Un dataframe con la definicion de una palabra aleatoria.
 \description{
 Obtener una palabra aleatoria
 }
+\examples{
+\donttest{
+palabra_aleatoria()
+}
+}
