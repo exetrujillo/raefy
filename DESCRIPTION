@@ -1,7 +1,7 @@
 Package: raefy
 Type: Package
 Title: Interface to Royal Spanish Academy Data
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(given = "Exequiel",
            family = "Trujillo Escobar",

@@ -6,26 +6,33 @@
 rae_client <- function(cadena_consulta) {
   base_url <- "https://dle.rae.es/data/"
   url <- paste0(base_url, cadena_consulta)
-  
-  headers <- httr::add_headers(
-    "User-Agent" = "Diccionario/2 CFNetwork/808.2.16 Darwin/16.3.0",
-    "Authorization" = "Basic cDY4MkpnaFMzOmFHZlVkQ2lFNDM0",
-    "Content-Type" = "application/x-www-form-urlencoded"
+  args <- c(
+    "-s",
+    "-f",
+    "-H", shQuote("User-Agent: Diccionario/2 CFNetwork/808.2.16 Darwin/16.3.0"),
+    "-H", shQuote("Authorization: Basic cDY4MkpnaFMzOmFHZlVkQ2lFNDM0"),
+    shQuote(url)
   )
-  
-  respuesta <- httr::RETRY(
-    verb = "GET",
-    url = url,
-    config = headers,
-    times = 3,
-    pause_base = 1,
-    pause_cap = 5,
-    terminate_on = c(404, 401, 403) 
+
+  # Ejecutar curl
+  # Se requiere curl instalado en el sistema (Windows 10+ lo trae por defecto)
+  resultado <- tryCatch(
+    {
+      system2("curl", args, stdout = TRUE, stderr = NULL)
+    },
+    warning = function(w) {
+      stop("La peticion a la API fallo (posiblemente 403 Forbidden o Error de Conexion).")
+    },
+    error = function(e) {
+      stop("Error ejecutando curl del sistema. Asegurese de tener curl instalado y en el PATH.")
+    }
   )
-  
-  if (httr::status_code(respuesta) != 200) {
-    stop(paste("La peticion a la API fallo con estado:", httr::status_code(respuesta)))
+
+  contenido <- paste(resultado, collapse = "\n")
+
+  if (nchar(contenido) == 0) {
+    stop("La API retorno una respuesta vacia.")
   }
-  
-  return(httr::content(respuesta, "text", encoding = "UTF-8"))
+
+  return(contenido)
 }
